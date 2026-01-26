@@ -1,0 +1,6 @@
+export const blue= "#6c8fc7"
+export const grayColor="rgba(247,247,247,1)"
+export const lightGray="#f5f5f5"
+export const deepRoyalBlue="#1f3c88"
+export const messageName = "#2694ab"
+export const navyblue = " #0F172A"
