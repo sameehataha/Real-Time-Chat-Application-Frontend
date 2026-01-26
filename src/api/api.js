@@ -3,7 +3,18 @@ import { server } from "../constants/config";
 
 const api = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: `${server}/api/v1/` }),
+  baseQuery: fetchBaseQuery({ 
+    baseUrl: `${server}/api/v1/`,
+    prepareHeaders: (headers) => {
+      // Add token from localStorage to every request
+      const token = localStorage.getItem("talkie-token");
+      if (token) {
+        headers.set("authorization", `Bearer ${token}`);
+      }
+      headers.set("credentials", "include");
+      return headers;
+    },
+  }),
   tagTypes: ["Chat", "User", "Message"],
   endpoints: (builder) => ({
     myChats: builder.query({

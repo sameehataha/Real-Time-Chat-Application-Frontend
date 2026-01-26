@@ -31,6 +31,7 @@ const Login = () => {
   const navigate = useNavigate();
   const avatar = useFileHandler("single");
   const dispatch = useDispatch();
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     const config = {
@@ -43,15 +44,16 @@ const Login = () => {
         { username: username.value, password: password.value },
         config,
       );
+      // Store token in localStorage
+      localStorage.setItem("talkie-token", data.token || "");
       dispatch(userExists(data.user));
       toast.success(data.message);
       navigate("/");
-      // .then((res) =>  console.log(res))
-      // .catch((err) => console.log(err))
     } catch (error) {
       toast.error(error?.response?.data?.message || "something went wrong");
     }
   };
+  
   const handleSignup = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -71,6 +73,8 @@ const Login = () => {
         formData,
         config,
       );
+      // Store token in localStorage
+      localStorage.setItem("talkie-token", data.token || "");
       dispatch(userExists(data.user));
       toast.success(data.message);
       navigate("/");
@@ -78,6 +82,7 @@ const Login = () => {
       toast.error(error?.response?.data?.message || "Something went wrong");
     }
   };
+  
   return (
     <div
       style={{
