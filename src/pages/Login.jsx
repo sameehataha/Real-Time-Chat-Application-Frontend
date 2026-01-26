@@ -73,6 +73,7 @@ const Login = () => {
       );
       dispatch(userExists(data.user));
       toast.success(data.message);
+      navigate("/");
     } catch (error) {
       toast.error(error?.response?.data?.message || "Something went wrong");
     }
