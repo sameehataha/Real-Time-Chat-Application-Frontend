@@ -17,17 +17,17 @@ const SocketProvider = ({ children }) => {
     console.log("Server URL:", server);
     console.log("Environment:", process.env.NODE_ENV);
 
-    const newSocket = io(server, {
-      withCredentials: true,
-      reconnection: true,
-      reconnectionDelay: 1000,
-      reconnectionDelayMax: 5000,
-      reconnectionAttempts: 5,
-      transports: ["websocket", "polling"],
-      secure: false,
-      rejectUnauthorized: false,
-    });
+const token = localStorage.getItem("talkie-token");
 
+const newSocket = io(server, {
+  withCredentials: true,
+  auth: { token },    
+  reconnection: true,
+  reconnectionDelay: 1000,
+  reconnectionDelayMax: 5000,
+  reconnectionAttempts: 5,
+  transports: ["websocket", "polling"],
+});
     newSocket.on("connect", () => {
       console.log(" Socket connected!");
       console.log("Socket ID:", newSocket.id);
