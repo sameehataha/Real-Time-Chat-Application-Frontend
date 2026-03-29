@@ -13,7 +13,8 @@
 **[View Live Application](https://real-time-chat-application-frontend-rho.vercel.app/)**
 
 
-image 
+![Real Time Chat Application](./preveiw.png.png)
+![Real Time Chat Application](./review.png.png)
 
 ##  Table of Contents
 
