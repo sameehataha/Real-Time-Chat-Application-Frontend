@@ -160,7 +160,7 @@ src/ <br>
 
 # Setup Steps
 # Clone the repository
-git clone https://github.com/yourusername/talkie-frontend.git
+git clone https://github.com/sameehataha/Real-Time-Chat-Application-Frontend.git <br>
 cd talkie-frontend
 
 # Install dependencies
