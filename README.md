@@ -170,7 +170,7 @@ npm install
 cp .env.example .env
 
 # Update environment variables
-# VITE_SERVER=http://localhost:5000
+ VITE_SERVER=http://localhost:5000
 
 # Start development server
 npm run dev
